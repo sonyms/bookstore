@@ -38,7 +38,7 @@ const BookDetail = () => {
         </Alert>
       </Snackbar>}
     
-    </> : <>Loading Books Hello...</>}    
+    </> : <>Loading Books...</>}    
     </>
   )
 }
