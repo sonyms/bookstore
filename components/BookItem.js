@@ -59,7 +59,7 @@ const BookItem = ({_id, title, author, price, image, featured}) => {
         
         </CardActions>
       </Card>
-      {open && <Snackbar open={open} autoHideDuration={1000} onClose={()=>{setOpen(false);router.push('/books');}}>
+      {open && <Snackbar open={open} autoHideDuration={1000} onClose={()=>{setOpen(false); featured ? router.push('/'):router.push('/books');}}>
         <Alert onClose={()=>setOpen(false)} severity="success" sx={{ width: '100%' }}>
           Book successfully deleted!
         </Alert>
