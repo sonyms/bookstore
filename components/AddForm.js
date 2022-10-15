@@ -4,7 +4,45 @@ import { Fragment } from 'react';
 
 const labelSx = {marginTop: "10px"}
 
+
+const ContactForm = ({contactData,setContactData}) => {
+
+  const data = contactData[0]?contactData[0]:{}
+
+  return (
+    <Box padding={3} display="flex" flexDirection="column">
+      <FormLabel sx={labelSx}>Name</FormLabel>
+      <TextField variant="outlined" value={data.name} />
+      <FormLabel sx={labelSx}>Email</FormLabel>
+      <TextField variant="outlined" value={data.email} />
+      <FormLabel sx={labelSx}>Message</FormLabel>
+      <TextField variant="outlined" multiline rows={4} value={data.message} />
+      <Button variant="contained" sx={{marginTop: "10px"}}>Submit</Button>
+    </Box>
+  ) 
+}
+
+
 const AddForm = ({data, onSubmit}) => {
+
+  const dummyData = [
+
+    {
+      id : 1,
+      name: "John Doe",
+      email: "test@mail",
+      message: "ggggggggggggggg"
+    },
+    {
+      id:2,
+      name: "Jane Doe2",
+      email: "some@mail",
+      message: "hhhhhhhhhhhhh"
+    },
+  ];
+
+  const[contactData,setContactData] = React.useState(dummyData);
+
   const [inputs, setInputs] = React.useState(
     data? {
       title: data.title,
@@ -45,6 +83,7 @@ const AddForm = ({data, onSubmit}) => {
       <form onSubmit={handleSubmit} style={{ width:"80%", height:"100%",margin:"auto",boxShadow:"10px 10px 20px #ccc", borderRadius:"10px"}}>
 
         <Box padding={3} display="flex" flexDirection="column">
+          
           <FormLabel sx={labelSx}>Title</FormLabel>
           <TextField onChange={handleChange} value={inputs.title} name="title" margin="normal"/>
           <FormLabel sx={labelSx}>Author</FormLabel>

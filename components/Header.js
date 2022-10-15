@@ -14,6 +14,9 @@ const Header = () => {
         }else if(newValue === 2){
             router.push('/books/add')
         }
+        else if(newValue === 3){
+            router.push('/datagrid')
+        }
     }
   return (
     <AppBar position="sticky" sx={{bgcolor:"#c83576"}}>
@@ -24,6 +27,7 @@ const Header = () => {
                     <Tab sx={{fontFamily:'Ubuntu'}} label="Home"  />
                     <Tab sx={{fontFamily:'Ubuntu'}} label="All Books" />
                     <Tab sx={{fontFamily:'Ubuntu'}} label="Add Book" />
+                    <Tab sx={{fontFamily:'Ubuntu'}} label="Grid" />
                 </Tabs>
             </Box>
         </Toolbar>
