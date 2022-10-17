@@ -1,11 +1,7 @@
 import axios from "axios";
-
-const url = process.env.API_URL;
-
 export const getAllBooks = async () => {
-  console.log( process.env.API_URL+"/api/books")
   const response = await axios.get(
-    process.env.API_URL+"/api/books"
+    "https://sy9t9u-3000.preview.csb.app/api/books"
   );
 
   if (response.status !== 200) {
@@ -30,7 +26,7 @@ export const getFeaturedBooks = async () => {
 export const saveBook = async (data) => {
   try {
     const res = await axios.post(
-      "http://localhost:3001/api/books",
+      "https://sy9t9u-3000.preview.csb.app/api/books",
       data
     );
     console.log(res);
@@ -42,10 +38,8 @@ export const saveBook = async (data) => {
 
 export const getBookWithId = async (id) => {
   try {
-   
-    console.log(process.env.API_URL+"/api/book/"+id)
     const res = await axios.get(
-      "http://localhost:3001/api/book/"+id
+      `https://sy9t9u-3000.preview.csb.app/api/book/${id}`
     );
     return await res.data;
   } catch (err) {
@@ -56,9 +50,10 @@ export const getBookWithId = async (id) => {
 export const updateBook = async (id, data) => {
   try {
     const res = await axios.put(
-      "http://localhost:3001/api/book/"+id,
+      "https://sy9t9u-3000.preview.csb.app/api/book/" + id,
       data
     );
+    console.log(id);
     return await res.data;
   } catch (err) {
     console.log(err);
@@ -68,7 +63,7 @@ export const updateBook = async (id, data) => {
 export const deleteBook = async (id) => {
   try {
     const res = await axios.delete(
-      "http://localhost:3001/api/book/"+id
+      `https://sy9t9u-3000.preview.csb.app/api/book/${id}`
     );
     return await res.data;
   } catch (err) {
